@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Background Customizer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background 0.5s ease-in-out; /* Smooth background transition */
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px); /* Hover effect to lift the card */
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="color"] {
+            width: 50px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input[type="color"]:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+        .gradient-controls,
+        .image-controls {
+            margin: 20px 0;
+        }
+
+        .gradient-controls select,
+        .image-controls input {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px); /* Lift effect on hover */
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customize Your Background</h1>
+        <p>Pick a color, gradient, or image to customize the background:</p>
+        <div class="input-group">
+            <input type="color" id="colorPicker" value="#f5f5f5">
+            <button onclick="changeBackgroundColor()">Apply Color</button>
+        </div>
+        
+        <div class="gradient-controls">
+            <label for="gradientType">Select Gradient:</label>
+            <select id="gradientType" onchange="applyGradient()">
+                <option value="">None</option>
+                <option value="linear-gradient(to right, #ff7e5f, #feb47b)">Sunset</option>
+                <option value="linear-gradient(to right, #00c6ff, #0072ff)">Ocean</option>
+                <option value="linear-gradient(to right, #ff0099, #493240)">Rose</option>
+            </select>
+        </div>
+
+        <div class="image-controls">
+            <label for="backgroundImage">Choose Background Image:</label>
+            <input type="file" id="backgroundImage" accept="image/*" onchange="applyBackgroundImage()">
+        </div>
+        
+        <div class="footer">Enhance your experience with customizable backgrounds!</div>
+    </div>
+
+    <script>
+        function changeBackgroundColor() {
+            const color = document.getElementById('colorPicker').value;
+            document.body.style.backgroundColor = color;
+        }
+
+        function applyGradient() {
+            const gradient = document.getElementById('gradientType').value;
+            document.body.style.background = gradient;
+        }
+
+        function applyBackgroundImage() {
+            const file = document.getElementById('backgroundImage').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.body.style.background = `url(${event.target.result}) no-repeat center center fixed`;
+                    document.body.style.backgroundSize = 'cover';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

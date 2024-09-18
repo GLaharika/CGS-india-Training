@@ -1,0 +1,38 @@
+
+example :
+
+var student = {
+    name: "",
+    id: "",
+    branch:"",
+    Age: "",
+    subjects :[ "x", "y",],
+    address:{
+        flatno:"",
+        street:"",
+        city:"",
+        pincode:"",
+        distinct:"",
+        state:"",
+        country:""
+    }
+}
+
+console.log(student.branch)  //to access any key value or etx  
+
+
+
+//gretting example
+function greet(name){
+    console.log("hello" +name)
+}
+
+//const greet = () => {}
+
+
+
+fetch("url/path/address",options)
+ //post =send the data from api
+// get = get the data from api
+ //Put -> to update the data
+ //delet -> to deleet sme data

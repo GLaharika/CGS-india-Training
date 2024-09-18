@@ -1,0 +1,19 @@
+Day4
+1>CSS3
+2>bootstrap5
+3>Grid layout
+
+selectors
+1] id=unique for elemnts (#)
+2]class=group of elements(.)
+
+
+html layout
+1.header
+  navigation bars
+  search bar
+  left nav pane
+2.Body
+  matter nd website use
+3.footer
+   terms&cond,copyrights,cookypolicy...etc

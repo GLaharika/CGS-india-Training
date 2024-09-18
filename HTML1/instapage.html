@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 10px;
+            border-right: 1px solid #ddd;
+        }
+        .main-content {
+            flex: 1;
+            padding: 10px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .profile-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .profile-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .stories {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .story {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #eee;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+        }
+        .posts {
+            margin-top: 10px;
+        }
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .post img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .post .caption {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .navigation a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+        .navigation a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="row"> 
+        <div class="bg-primary col-md-2"> 
+            <img src="HTML1/insta.jpg" alt="" class="img"> 
+            <hr> 
+            <ul> 
+                <li>home</li> 
+                <li>search</li> 
+                <li>explore</li> 
+                <li>reels</li> 
+                <li>post</li> 
+                <li>messages</li> 
+                <li>settings</li> 
+                <li>profile</li> 
+            </ul>          
+        </div> 
+        <div class="bg-info col-md-8"></div> 
+        <div class="bg-secondary col-md-2"></div> 
+    </div>
+</div>
+<div class="stories">
+    <div class="story">Story 1</div>
+    <div class="story">Story 2</div>
+    <div class="story">Story 3</div>
+    
+</div>
+    <div class="container">
+        <div class="main-content">
+            <div class="profile-header">
+                <img src="HTML1/profileinsta.jpg" alt="Profile">
+                <h1>Username</h1>
+            <div class="posts">
+                <div class="post">
+                    <img src="HTML1/profile.jpg" alt="Post Image">
+                    <div class="caption">This is a sample caption for the post.</div>
+                </div>   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

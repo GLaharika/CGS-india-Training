@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Optional: Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+    .quick-links a {
+      text-decoration: none;
+      color: #0d6efd;
+    }
+    .quick-links a:hover {
+      text-decoration: underline;
+    }
+    .metric {
+      display: flex;
+      align-items: center;
+    }
+    .metric i {
+      font-size: 2rem;
+      margin-right: 10px;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar (Optional) -->
+      <div class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="position-sticky">
+          <ul class="nav flex-column p-3">
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link text-dark">
+                <i class="bi bi-house-door-fill me-2"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link text-dark">
+                <i class="bi bi-credit-card-fill me-2"></i> Expenses
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link text-dark">
+                <i class="bi bi-geo-alt-fill me-2"></i> Travel
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a href="#" class="nav-link text-dark">
+                <i class="bi bi-clipboard2-data-fill me-2"></i> Claims
+              </a>
+            </li>
+            <!-- Add more links as needed -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="col-md-10 ms-sm-auto px-4">
+        <div class="row">
+
+          <!-- Summary of Claims -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-header bg-primary text-white">
+                Claims Summary
+              </div>
+              <div class="card-body">
+                <p><strong>Pending:</strong> 5</p>
+                <p><strong>Approved:</strong> 12</p>
+                <p><strong>Rejected:</strong> 2</p>
+                <a href="#" class="btn btn-primary btn-sm">View All Claims</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Travel Plans -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-header bg-success text-white">
+                Upcoming Travel
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong>New York</strong><br>
+                    <small>Sep 15 - Sep 20</small>
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Paris</strong><br>
+                    <small>Oct 05 - Oct 12</small>
+                  </li>
+                  <!-- Add more trips as needed -->
+                </ul>
+                <a href="#" class="btn btn-success btn-sm mt-3">Manage Travels</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-header bg-warning text-white">
+                Key Metrics
+              </div>
+              <div class="card-body">
+                <div class="metric mb-3">
+                  <i class="bi bi-wallet2"></i>
+                  <div>
+                    <h5>Total Expenses</h5>
+                    <p>$5,000</p>
+                  </div>
+                </div>
+                <div class="metric mb-3">
+                  <i class="bi bi-graph-up"></i>
+                  <div>
+                    <h5>Claims This Month</h5>
+                    <p>20</p>
+                  </div>
+                </div>
+                <div class="metric">
+                  <i class="bi bi-bar-chart-line"></i>
+                  <div>
+                    <h5>Travel Expenses</h5>
+                    <p>$2,500</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header bg-secondary text-white">
+                Quick Links
+              </div>
+              <div class="card-body quick-links">
+                <a href="#" class="me-3"><i class="bi bi-plus-circle-fill me-1"></i>Submit New Claim</a>
+                <a href="#" class="me-3"><i class="bi bi-file-earmark-text-fill me-1"></i>View Reports</a>
+                <a href="#" class="me-3"><i class="bi bi-gear-fill me-1"></i>Settings</a>
+                <a href="#" class="me-3"><i class="bi bi-question-circle-fill me-1"></i>Help & Support</a>
+                <!-- Add more links as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications and Alerts (Optional) -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="alert alert-info" role="alert">
+              <strong>Reminder:</strong> Don't forget to submit your expense reports by the end of the week!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Optional: Include Chart.js or other libraries for metrics visualization -->
+</body>
+</html>

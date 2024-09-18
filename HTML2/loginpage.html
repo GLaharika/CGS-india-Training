@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            width: 800px;
+            justify-content: space-between;
+        }
+        .logo-section {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo-section img {
+            width: 100px;
+        }
+        .logo-section p {
+            font-family: Arial;
+            font-weight: normal;
+            font-size: 24px;
+            margin-top: 10px;
+            
+        }
+        .form-section {
+            width: 300px;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-section input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-section button {
+            padding: 10px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-section">
+            <img src="-background-PNG-removebg-preview.png" alt="Logo">
+            <p>Sign in</p>
+            <p>To continue to website<p>    
+        </div>
+        <div class="form-section">
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" size="35px" id="email" placeholder="Email or phone ">
+                </div>
+                <div class="input-group">
+                    <label for="password"></label>
+                    <input type="password" class="form-control" size="35px" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Next</button>
+                <div class="text-center mt-3">
+                    <a href="#" class="d-block text-right mb-3">Forgot email?</a>
+                    <a href="#">Create account</a>
+                </div>
+            </form>
+            
+            <hr>
+            <p class="text-center text-muted small">
+                Not your computer? Use Guest mode to sign in privately.<br>
+                <a href="#">Learn more</a>
+            </p>
+        </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Game</title>
+    <link rel="stylesheet" href="" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+</head>
+<style>
+    .card {
+        margin-bottom: 20px;
+    }
+    .party-logo img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .vote-button {
+        margin-top: 20px;
+    }
+    #finish-voting {
+        margin-top: 40px;
+    }
+    #winner {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .container-fluid{
+        width: 100vw;
+        height: 100vh;
+        background-image: url();
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center">Election Game</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="party-logo d-flex">
+                            <img src="assets/images/KCR.jpg" alt="brs">
+                        </div>
+                        <h5 class="card-title">BRS</h5>
+                        <p class="card-text">Votes: <span id="brs-votes">0</span></p>
+                        <button class="btn btn-primary vote-button" id="vote-brs">Vote for BRS</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="party-logo d-flex">
+                            <img src="assets/images/pkjanasena-696x464.jpg" alt="janasena">
+                        </div>
+                        <h5 class="card-title">Janasena</h5>
+                        <p class="card-text">Votes: <span id="janasena-votes">0</span></p>
+                        <button class="btn btn-primary vote-button" id="vote-ysrcp">Vote for Janasena</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="party-logo d-flex">
+                            <img src="assets/images/161623-kishan.jpg" alt="bjp">
+                        </div>
+                        <h5 class="card-title">BJP</h5>
+                        <p class="card-text">Votes: <span id="psp-votes">0</span></p>
+                        <button class="btn btn-primary vote-button" id="vote-psp">Vote for BJP</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="party-logo d-flex">
+                            <img src="assets/images/revanth-reddy-1.jpg" alt="congress">
+                        </div>
+                        <h5 class="card-title">CONGRESS</h5>
+                        <p class="card-text">Votes: <span id="congress-votes">0</span></p>
+                        <button class="btn btn-primary vote-button" id="vote-CONGRESS">Vote for CONGRESS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-success" id="finish-voting">Finish Voting</button>
+            <div id="winner"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Expenses Management System</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x800') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e55a4f;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #adb5bd;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .alert-danger {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Welcome to Travel & Expenses Management System</h1>
+            <img src="travel.jpg" alt="Travel and Expenses">
+            <p>Manage your travel plans and expenses effortlessly with our innovative platform.</p>
+            <button class="cta-button" onclick="window.location.href='registration.html'">Create Account</button>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center">LOG-IN</h2>
+                <form id="loginForm">
+                    <div class="form-group position-relative">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" required>
+                    </div>
+                    <div class="form-group position-relative">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="alert alert-danger" role="alert" id="loginAlert">
+                        Invalid username or password!
+                    </div>
+                    <button type="submit" class="btn btn-primary">NEXT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Travel & Expenses Management System. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts for fetching static profiles -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginAlert = document.getElementById('loginAlert');
+
+            // Fetch static JSON data
+            fetch('profiles.json')
+                .then(response => response.json())
+                .then(data => {
+                    const profiles = data.profiles;
+
+                    // Validate user credentials on form submit
+                    loginForm.addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        const enteredUsername = usernameInput.value;
+                        const enteredPassword = passwordInput.value;
+
+                        const validUser = profiles.find(profile =>
+                            profile.username === enteredUsername && profile.password === enteredPassword
+                        );
+
+                        if (validUser) {
+                            alert(`Welcome, ${validUser.name}`);
+                            // Redirect to dashboard based on user type, if needed.
+                        } else {
+                            loginAlert.style.display = 'block';
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading profiles:', error));
+        });
+    </script>
+</body>
+
+</html>

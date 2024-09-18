@@ -1,0 +1,2 @@
+provides basic necessities and components 
+which include functionalities and style which are html and css

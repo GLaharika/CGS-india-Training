@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .header .user-info img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .header .user-info span {
+            margin-right: 15px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+        }
+        .sidebar a.active, .sidebar a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .content-header {
+            margin-bottom: 20px;
+        }
+        .panel {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #007bff;
+        }
+        .panel h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="title">Travel & Expense</div>
+        <div class="user-info">
+            <img src="avatar.png" alt="Admin Avatar" width="40" height="40">
+            <span>Admin Name</span>
+            <button>Logout</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Users Management</a>
+        <a href="#">Expense Reports</a>
+        <a href="#">Travel Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Welcome to the Admin Dashboard</h1>
+            <p>Select an option from the sidebar to manage the system.</p>
+        </div>
+        
+        <div class="panel">
+            <h2>Recent Activity</h2>
+            <p>No recent activity.</p>
+        </div>
+        
+        <div class="panel">
+            <h2>Pending Approvals</h2>
+            <p>No pending approvals.</p>
+        </div>
+    </div>
+
+</body>
+</html>
