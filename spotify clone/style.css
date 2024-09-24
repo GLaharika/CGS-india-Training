@@ -1,4 +1,4 @@
-/* Video Background Styling */
+
 .video-container {
     position: fixed;
     top: 0;
@@ -7,19 +7,17 @@
     width: 100vw;
     z-index: -1;
     overflow: hidden;
-    opacity: 0.4; /* Make it slightly transparent */
+    opacity: 0.4; 
 }
 
 #background-video {
     height: 100%;
     width: 100%;
-    object-fit: cover; /* Ensures the video covers the screen without stretching */
-}
+    object-fit: cover; }
 
-/* Spotify Clone with 3D Effects and Animations */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgba(18, 18, 18, 0.9); /* Dark overlay to blend with video */
+    background-color: rgba(18, 18, 18, 0.9); 
     color: white;
     margin: 0;
     padding: 20px;
@@ -30,7 +28,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    z-index: 10; /* Ensures the container is above the video */
+    z-index: 10; 
 }
 
 header {
@@ -39,21 +37,17 @@ header {
 }
 
 h1 {
-    color: #1DB954; /* Spotify green */
+    color: #1DB954;
     font-size: 3rem;
     text-shadow: 0px 0px 15px rgba(29, 185, 84, 0.8);
     letter-spacing: 2px;
 }
-
-/* Search Bar Styling */
 .search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
-    z-index: 10; /* Ensure the search bar appears above the video */
-}
-
+    z-index: 10;
 #searchSong {
     width: 40%;
     padding: 15px;
@@ -86,19 +80,19 @@ h1 {
 }
 
 #searchButton:hover {
-    background-color: #14833b; /* Darker Spotify green */
+    background-color: #14833b; 
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(29, 185, 84, 0.6);
 }
 
-/* Results Section */
+
 #results {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-/* Card Styling */
+
 .card {
     background-color: #181818;
     border: none;
