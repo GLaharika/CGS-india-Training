@@ -141,3 +141,58 @@ SELECT
     
 SELECT DISTINCT job
 FROM cgs.employees;
+
+
+
+
+-- 1. Calculate Average Salary per Department
+SELECT deptno, AVG(salary) AS avg_salary
+FROM cgs.employees
+GROUP BY deptno
+ORDER BY avg_salary DESC;
+
+-- 2. List Employees with Salary Above the Average Salary of Their Department
+SELECT name, salary, deptno
+FROM cgs.employees e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM cgs.employees
+    WHERE deptno = e.deptno
+);
+
+-- 3. Count Employees per Job Title
+SELECT job, COUNT(*) AS num_employees
+FROM cgs.employees
+GROUP BY job;
+
+-- 4. Find the Employee with the Highest Commission in Each Department
+SELECT deptno, name, MAX(comm) AS max_comm
+FROM cgs.employees
+GROUP BY deptno;
+
+-- 5. Calculate Total Salary and Total Commission per Department
+SELECT deptno, SUM(salary) AS total_salary, SUM(comm) AS total_commission
+FROM cgs.employees
+GROUP BY deptno;
+
+-- 6. Find Employees Who Have Been Working for More Than 3 Years
+SELECT name, hiredate, 
+    YEAR(CURDATE()) - YEAR(hiredate) AS years_of_service
+FROM cgs.employees
+WHERE YEAR(CURDATE()) - YEAR(hiredate) > 3;
+
+-- 7. List Employees with the Same Job Title but Different Bosses
+SELECT e1.name AS employee, e1.job, e1.boss AS boss1, e2.boss AS boss2
+FROM cgs.employees e1
+JOIN cgs.employees e2
+ON e1.job = e2.job AND e1.boss <> e2.boss;
+
+-- 8. Find the Next Tuesday's Date
+SELECT DATE_ADD(CURDATE(), INTERVAL (9 - DAYOFWEEK(CURDATE())) % 7 + 2 DAY) AS next_tuesday;
+
+-- 9. Calculate Date After Fifteen Days from Today
+SELECT CURDATE() AS today, DATE_ADD(CURDATE(), INTERVAL 15 DAY) AS date_after_fifteen_days;
+
+-- 10. List Distinct Job Titles Available
+SELECT DISTINCT job
+FROM cgs.employees;
