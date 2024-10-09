@@ -196,3 +196,159 @@ SELECT CURDATE() AS today, DATE_ADD(CURDATE(), INTERVAL 15 DAY) AS date_after_fi
 -- 10. List Distinct Job Titles Available
 SELECT DISTINCT job
 FROM cgs.employees;
+
+
+-- 1. Calculate Average Salary per Department
+SELECT deptno, AVG(salary) AS avg_salary
+FROM cgs.employees
+GROUP BY deptno
+ORDER BY avg_salary DESC;
+
+-- 2. List Employees with Salary Above the Average Salary of Their Department
+SELECT name, salary, deptno
+FROM cgs.employees e
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM cgs.employees
+    WHERE deptno = e.deptno
+);
+
+-- 3. Count Employees per Job Title
+SELECT job, COUNT(*) AS num_employees
+FROM cgs.employees
+GROUP BY job;
+
+-- 4. Find the Employee with the Highest Commission in Each Department
+SELECT deptno, name, MAX(comm) AS max_comm
+FROM cgs.employees
+GROUP BY deptno;
+
+-- 5. Calculate Total Salary and Total Commission per Department
+SELECT deptno, SUM(salary) AS total_salary, SUM(comm) AS total_commission
+FROM cgs.employees
+GROUP BY deptno;
+
+-- 6. Find Employees Who Have Been Working for More Than 3 Years
+SELECT name, hiredate, 
+    YEAR(CURDATE()) - YEAR(hiredate) AS years_of_service
+FROM cgs.employees
+WHERE YEAR(CURDATE()) - YEAR(hiredate) > 3;
+
+-- 7. List Employees with the Same Job Title but Different Bosses
+SELECT e1.name AS employee, e1.job, e1.boss AS boss1, e2.boss AS boss2
+FROM cgs.employees e1
+JOIN cgs.employees e2
+ON e1.job = e2.job AND e1.boss <> e2.boss;
+
+-- 8. Find the Next Tuesday's Date
+SELECT DATE_ADD(CURDATE(), INTERVAL (9 - DAYOFWEEK(CURDATE())) % 7 + 2 DAY) AS next_tuesday;
+
+-- 9. Calculate Date After Fifteen Days from Today
+SELECT CURDATE() AS today, DATE_ADD(CURDATE(), INTERVAL 15 DAY) AS date_after_fifteen_days;
+
+-- 10. List Distinct Job Titles Available
+SELECT DISTINCT job
+FROM cgs.employees;
+
+-- 11. Identify Departments with More Than 3 Employees
+SELECT deptno, COUNT(*) AS num_employees
+FROM cgs.employees
+GROUP BY deptno
+HAVING COUNT(*) > 3;
+
+-- 12. Rank Employees by Salary within Their Department (using window function)
+SELECT name, deptno, salary,
+       RANK() OVER (PARTITION BY deptno ORDER BY salary DESC) AS salary_rank
+FROM cgs.employees;
+
+-- 13. Calculate the Average Years of Service per Department
+SELECT deptno, AVG(YEAR(CURDATE()) - YEAR(hiredate)) AS avg_years_of_service
+FROM cgs.employees
+GROUP BY deptno;
+
+-- 14. Identify Employees with the Highest Salary in Each Job Role
+SELECT job, name, salary
+FROM cgs.employees e
+WHERE salary = (
+    SELECT MAX(salary)
+    FROM cgs.employees
+    WHERE job = e.job
+);
+
+-- 15. Find Departments with No Managers (Assuming 'Manager' is the job title)
+SELECT deptno
+FROM cgs.employees
+WHERE deptno NOT IN (
+    SELECT deptno
+    FROM cgs.employees
+    WHERE job = 'Manager'
+);
+
+-- 16. List Employees Who Joined the Company This Year
+SELECT name, hiredate
+FROM cgs.employees
+WHERE YEAR(hiredate) = YEAR(CURDATE());
+
+-- 17. Show the Department Hierarchy Based on Boss-Employee Relationships
+SELECT e1.name AS employee, e1.deptno, e2.name AS boss
+FROM cgs.employees e1
+LEFT JOIN cgs.employees e2
+ON e1.boss = e2.emp_no
+ORDER BY e1.deptno, e1.emp_no;
+
+-- 18. Calculate Employee Turnover Rate per Department
+SELECT deptno,
+    (SELECT COUNT(*)
+     FROM cgs.employees
+     WHERE YEAR(hiredate) = YEAR(CURDATE())) / COUNT(*) * 100 AS turnover_rate
+FROM cgs.employees
+GROUP BY deptno;
+
+-- 19. Find the Employee with the Longest Service Time
+SELECT name, hiredate,
+       DATEDIFF(CURDATE(), hiredate) AS days_of_service
+FROM cgs.employees
+ORDER BY days_of_service DESC
+LIMIT 1;
+
+-- 20. Calculate the Total Number of Employees Who Have Earned a Commission Greater Than Their Base Salary
+SELECT COUNT(*) AS employees_with_high_commission
+FROM cgs.employees
+WHERE comm > salary;
+
+-- 21. Find Employees Who Earn the Same Salary as Their Boss
+SELECT e1.name AS employee, e2.name AS boss, e1.salary
+FROM cgs.employees e1
+JOIN cgs.employees e2
+ON e1.boss = e2.emp_no
+WHERE e1.salary = e2.salary;
+
+-- 22. Calculate the Average Commission for Each Job Title
+SELECT job, AVG(comm) AS avg_commission
+FROM cgs.employees
+GROUP BY job;
+
+-- 23. Find Employees with the Most Recent Hire Dates in Each Department
+SELECT name, hiredate, deptno
+FROM cgs.employees e
+WHERE hiredate = (
+    SELECT MAX(hiredate)
+    FROM cgs.employees
+    WHERE deptno = e.deptno
+);
+
+-- 24. Identify Employees Earning Above the Median Salary for Their Job Title
+SELECT name, job, salary
+FROM cgs.employees e
+WHERE salary > (
+    SELECT MEDIAN(salary)
+    FROM cgs.employees
+    WHERE job = e.job
+);
+
+-- 25. Show the Highest, Lowest, and Average Salary in the Company
+SELECT 
+    MAX(salary) AS highest_salary,
+    MIN(salary) AS lowest_salary,
+    AVG(salary) AS average_salary
+FROM cgs.employees;
